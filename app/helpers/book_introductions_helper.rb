@@ -1,0 +1,2 @@
+module BookIntroductionsHelper
+end

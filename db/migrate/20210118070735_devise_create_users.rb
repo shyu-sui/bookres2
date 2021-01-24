@@ -35,12 +35,13 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :name
       t.timestamps null: false
       
-      create_table :books do |t|
+      
+     create_table :book_introductions do |t|
       t.string :title
-      t.text :body
+      t.text :opinion
       t.integer :user_id
       t.timestamps
-    end
+     end
     end
 
     add_index :users, :email,                unique: true

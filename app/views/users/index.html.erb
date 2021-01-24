@@ -8,7 +8,7 @@
   <h4>Title</h4>
   <%= f.text_field :title %>
   <h4>Body</h4>
-  <%= f.text_area :body %>
+  <%= f.text_area :opinion %>
 
   <%= f.submit 'Create Book' %>
 
@@ -27,8 +27,9 @@
  <% @books.each do |book| %>
   <tbody>
   <tr>
-   <td><%= book.title %></td>
-   <td><%= book.body %></td>
+   <td><%= @user %></td>
+   <td><%= @book.title %></td>
+   <td><%= @book.opinion %></td>
   </tr>
   </tbody>
  <% end %>

@@ -16,10 +16,10 @@
 </div>
 <% if user_signed_in? %>
  <div class="right-column">
-    <%= link_to "Home", root_path %>
-    <%= link_to "Usere", user_path(current_user.id) %>
+    <%= link_to "Home", user_path(current_user.id) %>
+    <%= link_to "Usere",  users_path %>
     <%= link_to "Bookers", root_path %>
-    <%= link_to "login", destroy_user_session_path, method: :delete %>
+    <%= link_to "logout", destroy_user_session_path, method: :delete %>
  </div>
  <% else %>
  <div class="right-column">
