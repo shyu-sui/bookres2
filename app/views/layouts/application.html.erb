@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="left-column">
+   <%= link_to "Bookers", root_path %>
+</div>
+<% if user_signed_in? %>
+ <div class="right-column">
+    <%= link_to "Home", root_path %>
+    <%= link_to "Usere", user_path(current_user.id) %>
+    <%= link_to "Bookers", root_path %>
+    <%= link_to "login", destroy_user_session_path, method: :delete %>
+ </div>
+ <% else %>
+ <div class="right-column">
+   <%= link_to "Hoom", root_path %>
+   <%= link_to "About", home_about_path %>
+   <%= link_to "sigin up", user_session_path %>
+   <%= link_to "login", new_user_session_path %>
+  </div>
+ <% end %>
+    </header>
+    <%= yield %>
+    <footer>CopyRight Infratop.inc</footer>
+  </body>
+</html>
