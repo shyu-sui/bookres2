@@ -5,6 +5,4 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :books
-  resources :users, only: [:show]
-  resources :book_introdutions, only: [:new, :create, :index, :show, :destroy]
 end

@@ -1,5 +1,11 @@
 <div class ="info" >
-  <h1>User info</h1>
+  <h1>UserInfo</h1>
+  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+  <h3 class="profile-name"><%= @user.name %></h3>
+  <div> <% if @user.id == current_user.id %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+        <% end %>
+  </div>
 </div>
 
 <div class = "NEW" >
@@ -15,23 +21,25 @@
   <% end %>
 </div>
 
-<div class = "show" >
-  <h1>Books</h1>
+
+<div class="users_all" >
+  <h1>Users</h1>
 <table>
-  <thead>
-  <tr>
-    <th>title</th>
-    <th>body</th>
-  </tr>
-  </thead>
- <% @books.each do |book| %>
+    <thead>
+      <tr>
+       <th>image</th>
+       <th>name</th>
+       <th></th>
+      </tr>
+    </thead>
+  <% @users.each do |user| %>
   <tbody>
-  <tr>
-   <td><%= @user %></td>
-   <td><%= @book.title %></td>
-   <td><%= @book.opinion %></td>
-  </tr>
+   <tr>
+    <td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></td>
+    <td><%= user.name %></td>
+    <td><%= link_to "show",user_path(user)%></td>
+   </tr>
   </tbody>
- <% end %>
+  <% end %>
 </table>
 </div>
