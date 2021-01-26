@@ -9,28 +9,38 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
-      <div class="left-column">
-   <%= link_to "Bookers", root_path %>
-</div>
-<% if user_signed_in? %>
- <div class="right-column">
-    <%= link_to "Home", user_path(current_user.id) %>
-    <%= link_to "Usere",  users_path %>
-    <%= link_to "Bookers", root_path %>
-    <%= link_to "logout", destroy_user_session_path, method: :delete %>
- </div>
- <% else %>
- <div class="right-column">
-   <%= link_to "Hoom", root_path %>
-   <%= link_to "About", home_about_path %>
-   <%= link_to "sigin up", user_session_path %>
-   <%= link_to "login", new_user_session_path %>
-  </div>
- <% end %>
-    </header>
+<body>
+  <header class="navbar navbar-dark bg-dark">
+    <div class="container">
+         <div class="navbar-nav navbar-left">
+          <%= link_to "Bookers", root_path %>
+         </div>
+         <nav>
+           <ul class="navbar-nav  navbar-expand-lg ml-auto ">
+        <% if user_signed_in? %>
+            <li><%= link_to "Home", user_path(current_user.id) %></li>
+            <li><%= link_to "Usere",  users_path %></li>
+            <li><%= link_to "Bookers", books_path %></li>
+            <li><%= link_to "logout", destroy_user_session_path, method: :delete,class:"nav-item active" %></li>
+        <% else%>
+            <li><%= link_to "Hoom", root_path,class:"nav-item active" %></li>
+            <li><%= link_to "About", home_about_path,class:"nav-item active" %></li>
+            <li><%= link_to "sigin up", user_session_path,class:"nav-item active" %></li>
+            <li><%= link_to "login", new_user_session_path,class:"nav-item active" %></li>
+        <% end %>
+           </ul>
+         </nav>
+    </div>
+  </header>
     <%= yield %>
-    <footer>CopyRight Infratop.inc</footer>
-  </body>
+    <footer>
+      <div class="conatainer md-5">
+        <div class="row">
+          <div class="mx-auto">
+            CopyRight Infratop.inc
+          </div>
+        </div>
+      </div>
+    </footer>
+</bpdy>
 </html>
