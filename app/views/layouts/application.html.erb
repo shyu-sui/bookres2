@@ -24,11 +24,11 @@
             </li>
             <li>
               <i class="fas fa-users"></i>
-              <%= link_to "Usere",  users_path %>
+              <%= link_to "Users",  users_path %>
             </li>
             <li>
               <i class="fas fa-user-plus"></i>
-              <%= link_to "Bookers", books_path %>
+              <%= link_to "Books", books_path %>
             </li>
             <li>
               <i class="fas fa-sign-out-alt"></i>
@@ -37,16 +37,20 @@
         <% else%>
             <li>
               <i class="fas fa-home"></i>
-              <%= link_to "Hoom", root_path,class:"nav-item active" %></li>
+              <%= link_to "Home", root_path,class:"nav-item active" %>
+            </li>
             <li>
               <i class="fas fa-link"></i>
-              <%= link_to "About", home_about_path,class:"nav-item active" %></li>
+              <%= link_to "About", home_about_path,class:"nav-item active" %>
+            </li>
             <li>
               <i class="fas fa-user-plus"></i>
-              <%= link_to "sigin up", user_session_path,class:"nav-item active" %></li>
+              <%= link_to "sign up", new_user_registration_path,class:"nav-item active" %>
+            </li>
             <li>
               <i class="fas fa-sign-in-alt"></i>
-              <%= link_to "login", new_user_session_path,class:"nav-item active" %></li>
+              <%= link_to "login", new_user_session_path,class:"nav-item active" %>
+            </li>
         <% end %>
            </ul>
          </nav>
