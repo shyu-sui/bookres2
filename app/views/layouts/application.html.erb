@@ -17,7 +17,7 @@
          </div>
          <nav>
            <ul class="navbar-nav  navbar-expand-lg ml-auto ">
-        <% if user_signed_in? %>
+           <% if user_signed_in? %>
             <li>
               <i class="fas fa-home"></i>
               <%= link_to "Home", user_path(current_user.id) %>
@@ -34,24 +34,24 @@
               <i class="fas fa-sign-out-alt"></i>
               <%= link_to "logout", destroy_user_session_path, method: :delete %>
             </li>
-        <% else%>
+            <% else %>
             <li>
               <i class="fas fa-home"></i>
-              <%= link_to "Home", root_path,class:"nav-item active" %>
+              <%= link_to "Home", root_path %>
             </li>
             <li>
               <i class="fas fa-link"></i>
-              <%= link_to "About", home_about_path,class:"nav-item active" %>
+              <%= link_to "About", home_about_path %>
             </li>
             <li>
               <i class="fas fa-user-plus"></i>
-              <%= link_to "sign up", new_user_registration_path,class:"nav-item active" %>
+              <%= link_to "sign up", new_user_registration_path %>
             </li>
             <li>
               <i class="fas fa-sign-in-alt"></i>
-              <%= link_to "login", new_user_session_path,class:"nav-item active" %>
+              <%= link_to "login", new_user_session_path %>
             </li>
-        <% end %>
+            <% end %>
            </ul>
          </nav>
     </div>
