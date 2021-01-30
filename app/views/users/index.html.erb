@@ -1,3 +1,5 @@
+<p id="notice">
+ <%=  notice %> 
 <div class="container px-5 px-sm-0" >
  <% if @book.errors.any? %>
     <%= @book.errors.count %>件のエラーが発生しました
@@ -9,6 +11,19 @@
   <div class="col-md-3">
    <h1>UserInfo</h1>
    <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+   <table class= "tabel">
+    <thead>
+      <tr></tr>
+      <tr>
+        <th>name</th>
+        <th><%= @user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%= @user.introduction %></th>
+      </tr>
+    </thead>
+  </table>
    <h3 class="profile-name"><%= @user.name %></h3>
     <div> <% if @user.id == current_user.id %>
       <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>

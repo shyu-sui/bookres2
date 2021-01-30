@@ -1,3 +1,5 @@
+<p id="notice">
+ <%=  notice %> 
 <div class ="container px-5 px-sm-0" >
   <% if @book.errors.any? %>
     <%= @book.errors.count %>件のエラーが発生しました
@@ -49,7 +51,11 @@
     </td>
     <td><%= link_to @book.title, book_path(@book.id) %></td>
     <td><%= @book.body %></td>
-    <td><%= link_to "edit", edit_book_path %></td>
+    <td><% if @user.id == current_user.id %>
+        <%= link_to edit_user_path(current_user.id) do %>
+        <div class= " edit btn btn-outline-secondary btn-default btn-block" ><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></div>
+        <% end %>
+        <% end %></td>
     <td><%= link_to "destory", book_path(@book), metod: :delete %></td>
   </tr>
   </tbody>
