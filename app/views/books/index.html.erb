@@ -23,13 +23,17 @@
     </thead>
   </table>
   <div> <% if @user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+    <p><%= link_to edit_user_path(@user),class: "btn btn-outline-secondary btn-block"  do%>
+         <i class=" fas fa-user-cog" ></i>
+         <% end %>
+    </p>
         <% end %>
   </div>
 
   <h1>New book</h1>
   <%= form_with model:@book, local:true do |f| %>
   <h4>Title</h4>
+
   <%= f.text_field :title %>
   <h4>Opinion</h4>
   <%= f.text_area :body %>
@@ -61,6 +65,7 @@
     </td>
     <td><%= link_to book.title, book_path(book.id) %></td>
     <td><%= book.body %></td>
+
   </tr>
   </tbody>
 <% end %>

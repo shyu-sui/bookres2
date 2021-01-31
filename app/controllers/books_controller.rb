@@ -22,10 +22,10 @@ class BooksController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @book = Book.new
-    @books = @user.books
     @book = Book.find(params[:id])
+    @user = @book.user
+    @book_new = Book.new
+    @books = @user.books
   end
 
   def edit
@@ -38,9 +38,9 @@ class BooksController < ApplicationController
   end
 
   def update
-    book = Book.find(params[:id])
-    if book.update(book_params)
-      redirect_to book_path(book) , notice: 'Book was successfully updated.'
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+      redirect_to book_path(@book) , notice: 'Book was successfully updated.'
     else
       render :edit
     end
@@ -49,7 +49,7 @@ class BooksController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    redirect_to book_path
+    redirect_to books_path
   end
 
   private
